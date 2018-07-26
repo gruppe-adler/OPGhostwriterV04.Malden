@@ -23,22 +23,27 @@
 class shortrange {
     class net1 {
         freq = 50;
+        name = "Command";
     };
 
     class net2 {
         freq = 60;
+        name = "Alpha";
     };
 
     class net3 {
         freq = 70;
+        name = "Alpha1";
     };
 
     class net4 {
         freq = 80;
+        name = "Alpha2";
     };
 
     class net5 {
-        freq = 90;
+        freq = 55;
+        name = "Battlecat";
     };
 
     class net6 {
@@ -58,11 +63,13 @@ class shortrange {
 //LONGRANGE KANÄLE =============================================================
 class longrange {
     class net1 {
-        freq = 32;
+        freq = 50;
+        name = "Command";
     };
 
     class net2 {
-        freq = 33;
+        freq = 55;
+        name = "Battlecat"
     };
 
     class net3 {

@@ -33,6 +33,28 @@
 */
 
 class BLUFOR {
+        class group1 {
+            groupName = "Command";
+
+            class shortrange {
+                defaultChannel = 1;
+                altChannel = 2;
+                altChannelOnlyTL = 0;
+
+                channel1 = "Command";
+                channel2 = "Alpha";
+                
+                            };
+
+            class longrange {
+                defaultChannel = 1;
+                altChannel = 2;
+                altChannelOnlyTL = 0;
+
+                channel1 = "Command";
+                channel2 = "Alpha";
+            };
+        };
 
 };
 
