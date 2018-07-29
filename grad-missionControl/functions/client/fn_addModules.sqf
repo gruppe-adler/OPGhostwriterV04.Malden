@@ -18,4 +18,17 @@ if (
 
   }] call Ares_fnc_RegisterCustomModule;
 
+
+
+  ["ZEUS HELPERS", "Sound Alarm",
+  {
+    // Get all the passed parameters
+    params [["_position", [0,0,0], [[]], 3], ["_objectUnderCursor", objNull, [objNull]]];
+
+    [obj_loudspeakers, ["Alarm_OPFOR",200]] remoteExec ["say3D",0,false];
+
+  }] call Ares_fnc_RegisterCustomModule;
+
+
+
 };

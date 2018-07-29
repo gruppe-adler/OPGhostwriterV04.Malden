@@ -60,6 +60,7 @@ class CfgFunctions
 	#include "functions\missionSetup\cfgFunctions.hpp"
     #include "functions\radiosettings\cfgFunctions.hpp"
 	#include "functions\waverespawn\cfgFunctions.hpp"
+	#include "grad-missionControl\cfgFunctions.hpp"
 
     #include "node_modules\grad-loadout\cfgFunctions.hpp"
     #include "node_modules\grad-customGear\cfgFunctions.hpp"
