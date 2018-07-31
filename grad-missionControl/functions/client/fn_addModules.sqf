@@ -31,4 +31,26 @@ if (
 
 
 
+  ["ZEUS HELPERS", "Spawn Intel Map",
+  {
+    // Get all the passed parameters
+    params [["_position", [0,0,0], [[]], 3], ["_objectUnderCursor", objNull, [objNull]]];
+
+    private _map = createVehicle ["Land_Map_Malden_F", _position, [], 0, "can_collide"];
+    private _radioHolder = createVehicle ["groundWeaponHolder", _position, [], 0, "can_collide"]; 
+    _radioHolder addItemCargo ["ItemMap", 1];
+
+    [{
+      params ["_radioHolder", "_map"];
+      count ((getItemCargo cursorObject) select 0) isEqualTo 0
+    }, {
+      params ["_radioHolder", "_map"];
+      deleteVehicle _map;
+    }, [_radioHolder, _map]] call CBA_fnc_waitUntilAndExecute;
+
+  }] call Ares_fnc_RegisterCustomModule;
+
+
+
+
 };

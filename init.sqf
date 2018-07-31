@@ -8,3 +8,6 @@ enableSaving [false, false];
 
 // SCRIPTS =====================================================================
 [] execVM "USER\userInit.sqf";
+
+["BLU_F", "USMPT"] call GRAD_Loadout_fnc_FactionSetLoadout;
+["OPF_F", "ModerateRebels"] call GRAD_Loadout_fnc_FactionSetLoadout;

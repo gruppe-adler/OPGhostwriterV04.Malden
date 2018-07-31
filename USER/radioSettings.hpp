@@ -48,14 +48,17 @@ class shortrange {
 
     class net6 {
         freq = 100;
+        name = "";
     };
 
     class net7 {
         freq = 110;
+        name = "";
     };
 
     class net8 {
         freq = 120;
+        name = "";
     };
 };
 
@@ -74,29 +77,36 @@ class longrange {
 
     class net3 {
         freq = 34;
+        name = "";
     };
 
     class net4 {
         freq = 35;
+        name = "";
     };
 
     class net5 {
         freq = 36;
+        name = "";
     };
 
     class net6 {
         freq = 37;
+        name = "";
     };
 
     class net7 {
         freq = 38;
+        name = "";
     };
 
     class net8 {
         freq = 39;
+        name = "";
     };
 
     class net9 {
         freq = 40;
+        name = "";
     };
 };
