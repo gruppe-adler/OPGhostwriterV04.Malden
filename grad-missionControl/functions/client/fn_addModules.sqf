@@ -37,7 +37,7 @@ if (
 
     private _map = createVehicle ["Land_Map_Malden_F", _position, [], 0, "can_collide"];
     private _mapHolder = createVehicle ["groundWeaponHolder", _position, [], 0, "can_collide"]; 
-    _mapHolder addItemCargo ["ItemMap", 1];
+    _mapHolder addItemCargoGlobal ["ItemMap", 1];
 
     [{
       params ["_mapHolder", "_map"];
