@@ -25,6 +25,8 @@ _blurFX ppEffectCommit 0;
 
 _unit setPos _targetPosition;
 [player, player] call ACE_medical_fnc_treatmentAdvanced_fullHealLocal;
+removeAllWeapons player;
+player removeweapon "ItemMap";
 
 sleep 1;
 3 fadeSound 1;
@@ -36,3 +38,4 @@ _blurFX ppEffectCommit 10;
 sleep 10;
 _blurFX ppEffectEnable false;
 ppEffectDestroy _blurFX;
+
