@@ -1,8 +1,7 @@
 waitUntil {!isNull player};
 waitUntil {  time > 3 };
-if (
-  !isNull (getAssignedCuratorLogic player) &&
-  {isClass (configFile >> "CfgPatches" >> "achilles_modules_f_achilles")}
+if (  
+  isClass (configFile >> "CfgPatches" >> "achilles_modules_f_achilles")
 ) then
 {
   // Note that the line below has to be uncommented if your mission is a Zeus Game Master mission.
@@ -25,7 +24,7 @@ if (
     // Get all the passed parameters
     params [["_position", [0,0,0], [[]], 3], ["_objectUnderCursor", objNull, [objNull]]];
 
-    [obj_loudspeakers, ["Alarm_OPFOR",200]] remoteExec ["say3D",0,false];
+    [_objectUnderCursor, ["Alarm_OPFOR",300]] remoteExec ["say3D",0,false];
 
   }] call Ares_fnc_RegisterCustomModule;
 
