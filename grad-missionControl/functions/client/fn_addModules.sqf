@@ -37,16 +37,22 @@ if (
     params [["_position", [0,0,0], [[]], 3], ["_objectUnderCursor", objNull, [objNull]]];
 
     private _map = createVehicle ["Land_Map_Malden_F", _position, [], 0, "can_collide"];
-    private _radioHolder = createVehicle ["groundWeaponHolder", _position, [], 0, "can_collide"]; 
-    _radioHolder addItemCargo ["ItemMap", 1];
+    private _mapHolder = createVehicle ["groundWeaponHolder", _position, [], 0, "can_collide"]; 
+    _mapHolder addItemCargo ["ItemMap", 1];
 
     [{
-      params ["_radioHolder", "_map"];
-      count ((getItemCargo cursorObject) select 0) isEqualTo 0
-    }, {
-      params ["_radioHolder", "_map"];
-      deleteVehicle _map;
-    }, [_radioHolder, _map]] call CBA_fnc_waitUntilAndExecute;
+      params ["_mapHolder", "_map"];
+      
+          [{
+            params ["_mapHolder", "_map"];
+            count ((getItemCargo _mapHolder) select 0) isEqualTo 0
+          }, {
+            params ["_mapHolder", "_map"];
+            deleteVehicle _map;
+            deleteVehicle _mapHolder;
+          }, [_mapHolder, _map]] call CBA_fnc_waitUntilAndExecute;
+
+    }, [_mapHolder, _map], 3] call CBA_fnc_waitAndExecute;
 
   }] call Ares_fnc_RegisterCustomModule;
 
