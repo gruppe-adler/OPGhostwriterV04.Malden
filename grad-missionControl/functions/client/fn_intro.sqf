@@ -5,6 +5,14 @@ STHud_UIMode = 0;
 startFog=0.041335065;
 startFogDecay=0.1;
 startFogBase=30.393677;
+
+startFog=0.81;
+startFogDecay=0;
+startFogBase=2.6;
+
+endFog=0.15;
+endFogDecay=1;
+endFogBase=0;
 */
 
 // camera stuff is async
@@ -17,8 +25,10 @@ startFogBase=30.393677;
 
 	private _startPosition = getPos camera_start;
 	private _endPosition = getPos camera_end;
+	private _endPosition2 = getPos camera_end2;
+	_endPosition2 set [2, 1.4];
 	
-	_startPosition set [2, 0.1];
+	_startPosition set [2, 0.3];
 	_endPosition set [2, 1.4];
 	_camTarget = _endPosition;
 
@@ -32,7 +42,13 @@ startFogBase=30.393677;
 	_camera camSetFov 0.15;
 	_camera camCommit 45;
 
-	sleep 42; // still moving forward while turning on player
+	sleep 42;
+	/*
+	_camera camSetPos _endPosition2;
+	_camera camCommit 15;
+	*/
+
+	//sleep 12; // still moving forward while turning on player
 	_camera camSetTarget player;
 	_camera camCommit 3;
 	sleep 3;
@@ -54,58 +70,17 @@ sleep 3;
 cutText ["", "BLACK IN", 10];
 
 
-playMusic "LeadTrack02_F_Tank";
+playMusic "LeadTrack02_F_Jets";
 
 sleep 14;
 
-_introPic = findDisplay 46 ctrlCreate ["RscPicture", -1];
-_introPic ctrlSetPosition [
-	(safeZoneX + safeZoneW)/2 - safeZoneW/4,  
- 	(safezoneY + safeZoneH)/2 - safeZoneH/4,  
- 	safeZoneW/4,  
- 	safezoneH/4
-];
-_introPic ctrlsetText "pic\intro_1.paa";
-_introPic ctrlCommit 0;
+[
+	[
+		["0 P E R A T I 0 N   G H O S T W R i T E R","<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><t align = 'center' shadow = '0' size = '1.5' font='EtelkaNarrowMediumPro'>%1</t><br/>",25],
+		["Taki + Nomi für Gruppe Adler","<br/><br/><t align = 'center' color='33ffffff' shadow = '0' size = '0.5'>%1</t>",50]
+	]
+] spawn BIS_fnc_typeText;
 
-playSound (selectRandom ["GRAD_heartbeat_slow_1","GRAD_heartbeat_slow_2"]);
-sleep 2;
-
-_introPic ctrlsetText "pic\intro_2.paa";
-_introPic ctrlCommit 0;
-playSound (selectRandom ["GRAD_heartbeat_slow_1","GRAD_heartbeat_slow_2"]);
-sleep 2;
-
-_introPic ctrlsetText "pic\intro_3.paa";
-_introPic ctrlCommit 0;
-playSound (selectRandom ["GRAD_heartbeat_slow_1","GRAD_heartbeat_slow_2"]);
-sleep 2;
-
-_introPic ctrlsetText "pic\intro_4.paa";
-_introPic ctrlCommit 0;
-playSound (selectRandom ["GRAD_heartbeat_slow_1","GRAD_heartbeat_slow_2"]);
-sleep 2;
-
-_introPic ctrlsetText "pic\intro_5.paa";
-_introPic ctrlCommit 0;
-playSound (selectRandom ["GRAD_heartbeat_slow_1","GRAD_heartbeat_slow_2"]);
-sleep 3;
-
-_introPic ctrlsetText "pic\intro_6.paa";
-_introPic ctrlCommit 0;
-playSound (selectRandom ["GRAD_heartbeat_slow_1","GRAD_heartbeat_slow_2"]);
-sleep 5;
-_introPic ctrlSetFade 1;
-_introPic ctrlCommit 3;
-/*
-[  
- [  
-  ["C O   A T A K A","<t align = 'center' shadow = '0' size = '3.5' color='#ff8f1167' font='EtelkaNarrowMediumPro'>%1</t>"],
-  ["<br/>","<t color='#00000000' align = 'center' shadow = '0' size = '1.5' font='EtelkaNarrowMediumPro'>%1</t>"],
-  ["<br/>by nomisum for Gruppe Adler","<t align = 'center' shadow = '0' color='#66000000' font='EtelkaNarrowMediumPro' size = '.5'>%1</t>"]
- ]
-] spawn grad_missionControl_fnc_typeText;
-*/
 
 
 sleep 11;
@@ -119,5 +94,3 @@ INTRO_DONE = true;
 publicVariable "INTRO_DONE";
 
 7 fadeMusic 0.25;
-
-[player, "amovpercmstpslowwrfldnon"] remoteExec ["switchMove", 0, true];
