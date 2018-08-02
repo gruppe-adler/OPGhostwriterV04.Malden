@@ -86,7 +86,7 @@ sleep 10;
 sleep 20;
 
 // params ["_target",["_timeout",15],["_radius",50],["_angle",180],["_altitude",15],["_dir",0],["_commitTime",0.1],["_showCinemaBorder",false]];
-[vehicle player, 0, 100, 360,17,180,0.5,true] call GRAD_missionControl_fnc_rotatingCam;
+[BattleCatVehicle, 0, 100, 360,17,180,0.5,true] call GRAD_missionControl_fnc_rotatingCam;
 
 sleep 50;
 

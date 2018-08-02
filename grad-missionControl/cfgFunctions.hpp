@@ -18,6 +18,7 @@ class grad_missionControl {
 
       class alignUnitsInLine;
       class endMission;
+      class handleDamage;
       
   };
 };

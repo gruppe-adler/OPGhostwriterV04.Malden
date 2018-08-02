@@ -53,6 +53,30 @@ if (
 
     }, [_mapHolder, _map], 3] call CBA_fnc_waitAndExecute;
 
+    }] call Ares_fnc_RegisterCustomModule;
+
+
+    ["ZEUS HELPERS", "Spawn Glock + Mags",
+  {
+    // Get all the passed parameters
+    params [["_position", [0,0,0], [[]], 3], ["_objectUnderCursor", objNull, [objNull]]];
+
+    private _holder = createVehicle ["groundWeaponHolder", _position, [], 0, "can_collide"]; 
+    _holder addWeaponCargoGlobal ["hgun_Pistol_01_F", 1];
+    _holder addMagazineCargoGlobal ["10Rnd_9x21_Mag", 2];
+
+  }] call Ares_fnc_RegisterCustomModule;
+
+
+
+  ["ZEUS HELPERS", "Spawn OPFOR LR MR3000",
+  {
+    // Get all the passed parameters
+    params [["_position", [0,0,0], [[]], 3], ["_objectUnderCursor", objNull, [objNull]]];
+
+    private _holder = createVehicle ["groundWeaponHolder", _position, [], 0, "can_collide"]; 
+    _holder addBackpackCargoGlobal ["TFAR_mr3000_rhs", 1];
+
   }] call Ares_fnc_RegisterCustomModule;
 
 

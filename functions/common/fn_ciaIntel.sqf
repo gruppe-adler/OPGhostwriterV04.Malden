@@ -23,6 +23,7 @@ _time24 = format ["%1%2", _hour, _minute];
 {
   private _leader = leader _x;
   private _name = format ["zade_cia_intel_%1", count _newMarkers];
+  private _displayname = gettext (configFile >> "CfgVehicles" >> (typeof (vehicle _leader)) >> "displayName");
 
   //add marker to array
   _newMarkers pushBack _name;
@@ -33,7 +34,11 @@ _time24 = format ["%1%2", _hour, _minute];
   _marker setMarkerTypeLocal "o_unknown";
   _marker setMarkerAlphaLocal 0.3;
   _marker setMarkerColorLocal "ColorWhite";
-  _marker setMarkerTextLocal _time24;
+
+  if (vehicle _leader isKindOf "Man") then {
+      _displayname = "Inf";
+  };
+  _marker setMarkerTextLocal _time24 + " " + _displayname;
 } forEach _groups;
 
 zade_cia_intel_markers = _newMarkers;
