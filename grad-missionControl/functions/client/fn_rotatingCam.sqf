@@ -5,9 +5,7 @@
 _this spawn {
     params ["_target",["_timeout",15],["_radius",50],["_angle",180],["_altitude",15],["_dir",0],["_commitTime",0.1],["_showCinemaBorder",false]];
  
-    // cutText ["", "BLACK IN", 5];
-
-    mcd_rotateCamRunning = true;
+    cutText ["", "BLACK IN", 1];
     
  
     _coords = _target getPos [_radius,_angle];
@@ -22,13 +20,8 @@ _this spawn {
     _camera camPrepareFOV 0.300;
     _camera camPrepareTarget _targetPos;
     _camera camCommitPrepared 0;
-
-    [_timeout] spawn {
-        params ["_timeout"];
-        [{mcd_rotateCamRunning = false;}, [], _timeout] call CBA_fnc_waitAndExecute;
-    };
  
-    while {mcd_rotateCamRunning} do {
+    while {true} do {
         _coords = _targetPos getPos [_radius,_angle];
         _coords set [2, _heightASL];
         _coords = ASLToATL _coords;
@@ -36,7 +29,21 @@ _this spawn {
         _camera camPreparePos _coords;
         _camera camCommitPrepared _commitTime;
 
-        waitUntil {camCommitted _camera || !(mcd_rotateCamRunning)};
+        waitUntil {camCommitted _camera};
+ 
+        _angle = if (_dir == 0) then {_angle - 1} else {_angle + 1};
+    };
+
+
+    while {true} do {
+        _coords = _targetPos getPos [_radius/2,_angle];
+        _coords set [2, _heightASL/2];
+        _coords = ASLToATL _coords;
+ 
+        _camera camPreparePos _coords;
+        _camera camCommitPrepared _commitTime;
+
+        waitUntil {camCommitted _camera};
  
         _angle = if (_dir == 0) then {_angle - 1} else {_angle + 1};
     };
@@ -44,8 +51,8 @@ _this spawn {
     cutText ["", "BLACK OUT", 1];
     sleep 1;
     _camera cameraEffect ["terminate","back"];
-    camDestroy _camera;   
+    camDestroy _camera; 
     sleep 1;
-    cutText ["", "BLACK IN", 1];
+    cutText ["", "BLACK IN", 1]; 
 
 };

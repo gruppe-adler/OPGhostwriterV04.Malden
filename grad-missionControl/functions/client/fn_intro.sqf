@@ -28,8 +28,8 @@ endFogBase=0;
 	private _endPosition2 = getPos camera_end2;
 	_endPosition2 set [2, 1.4];
 	
-	_startPosition set [2, 0.5];
-	_endPosition set [2, 1.2];
+	_startPosition set [2, 0.8];
+	_endPosition set [2, 1.3];
 	_camTarget = _endPosition;
 
 	_camera = "camera" camCreate _startPosition;
@@ -72,33 +72,35 @@ cutText ["", "BLACK IN", 10];
 
 playMusic "LeadTrack02_F_Jets";
 
-sleep 14;
+sleep 10;
 
 [
 	[
-		["0 P E R A T I 0 N   G H O S T W R i T E R","<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><t align = 'center' shadow = '0' size = '1.5' font='EtelkaNarrowMediumPro'>%1</t><br/>",25],
-		["TAKI + NOMI FÜR GRUPPE ADLER","<br/><t align = 'center' color='99d6d6d6' shadow = '0' size = '0.5'>%1</t>",50]
+		["0 P E R A T I 0 N   G H O S T W R i T E R","<br/><br/><br/><t align = 'center' shadow = '0' size = '1.5' font='EtelkaNarrowMediumPro'>%1</t><br/>",25],
+		["TAKI + NOMI FÜR GRUPPE ADLER","<br/><t align = 'center' color='#99d6d6d6' shadow = '0' size = '0.5'>%1</t>",50]
 	]
 ] spawn BIS_fnc_typeText;
 
 
 
-sleep 11;
-
-
-sleep 10;
+sleep 20;
 
 // params ["_target",["_timeout",15],["_radius",50],["_angle",180],["_altitude",15],["_dir",0],["_commitTime",0.1],["_showCinemaBorder",false]];
-[vehicle player, 25, 100, 360,1,180,0.05,true] call GRAD_missionControl_fnc_rotatingCam;
+[vehicle player, 0, 100, 360,17,180,0.5,true] call GRAD_missionControl_fnc_rotatingCam;
 
-sleep 15;
+sleep 50;
+
+
 
 INTRO_DONE = true;
 publicVariable "INTRO_DONE";
 
+
+
 // player takes over vehicle
 if (player getVariable ["BattleCatDriver", false]) then {
 	moveOut BattleCatDriverAI;
+	player assignAsDriver BattleCatVehicle;
 	player moveInDriver BattleCatVehicle;
 };
 
