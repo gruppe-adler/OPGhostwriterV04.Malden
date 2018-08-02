@@ -9,6 +9,9 @@ grad_template_ratingEH = player addEventHandler ["HandleRating",{0}];
 
 if (player getVariable ["isCIAAgent", false]) then {
 	player addItem "tf_fadak";
+
+	//second parameter is delay in seconds: 300 = 5min
+  	[grad_common_fnc_ciaIntel, 300] call CBA_fnc_addPerFrameHandler;
 };
 
 if (player getVariable ["isPOW", false]) then {

@@ -5,20 +5,14 @@
 _this spawn {
     params ["_target",["_timeout",15],["_radius",50],["_angle",180],["_altitude",15],["_dir",0],["_commitTime",0.1],["_showCinemaBorder",false]];
  
-    cutText ["", "BLACK IN", 5];
+    // cutText ["", "BLACK IN", 5];
 
     mcd_rotateCamRunning = true;
-
-    [
-        [
-            ["Debriefing","<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><t align = 'center'  color='#59ffffff' shadow = '0' size = '1.5' font='EtelkaNarrowMediumPro'>%1</t><br/><br/>",25]
-        ]
-    ] spawn GRAD_missionControl_fnc_typeText;
     
  
     _coords = _target getPos [_radius,_angle];
     _targetPos = if (_target isEqualType []) then {_target} else {getPos _target};
-    _target set [2,1];
+    _targetPos set [2,1];
     _heightASL = (getTerrainHeightASL _targetPos) + _altitude;
  
     _coords set [2, _altitude];
@@ -26,7 +20,7 @@ _this spawn {
     _camera cameraEffect ["Internal","BACK"];
     showCinemaBorder _showCinemaBorder;
     _camera camPrepareFOV 0.300;
-    _camera camPrepareTarget _target;
+    _camera camPrepareTarget _targetPos;
     _camera camCommitPrepared 0;
 
     [_timeout] spawn {
@@ -35,7 +29,7 @@ _this spawn {
     };
  
     while {mcd_rotateCamRunning} do {
-        _coords = _target getPos [_radius,_angle];
+        _coords = _targetPos getPos [_radius,_angle];
         _coords set [2, _heightASL];
         _coords = ASLToATL _coords;
  
@@ -53,7 +47,5 @@ _this spawn {
     camDestroy _camera;   
     sleep 1;
     cutText ["", "BLACK IN", 1];
-
-    7 fadeMusic 0.25;
 
 };
