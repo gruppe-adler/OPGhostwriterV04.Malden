@@ -3,6 +3,5 @@ class GRAD_common {
         class addJipToZeus {};       
         class ciaIntel {};
         class restrictedArsenal {};
-        class ciaIntel {};
     };
 };
