@@ -1,5 +1,7 @@
 
 STHud_UIMode = 0;
+INTRO_CAM_ROTATION_1 = true;
+INTRO_CAM_ROTATION_2 = true;
 
 /*
 startFog=0.041335065;
@@ -43,12 +45,20 @@ endFogBase=0;
 	_camera camCommit 45;
 
 	sleep 42;
+
+	INTRO_CAM_ROTATION_1 = false;
+
+	sleep 30;
+
+	INTRO_CAM_ROTATION_2 = false;
+
 	/*
 	_camera camSetPos _endPosition2;
 	_camera camCommit 15;
 	*/
 
 	//sleep 12; // still moving forward while turning on player
+	/*
 	_camera camSetTarget player;
 	_camera camCommit 3;
 	sleep 3;
@@ -63,6 +73,7 @@ endFogBase=0;
 	camDestroy _camera;
 	sleep 1;
 	cutText ["", "BLACK IN", 1];
+	*/
 	STHud_UIMode = 1;
 };
 cutText ["","BLACK FADED",999];
@@ -83,10 +94,10 @@ sleep 10;
 
 
 
-sleep 20;
+sleep 25;
 
 // params ["_target",["_timeout",15],["_radius",50],["_angle",180],["_altitude",15],["_dir",0],["_commitTime",0.1],["_showCinemaBorder",false]];
-[BattleCatVehicle, 0, 100, 360,17,180,0.5,true] call GRAD_missionControl_fnc_rotatingCam;
+[BattleCatVehicle, 0, 100, 360,3,180,0.5,true] call GRAD_missionControl_fnc_rotatingCam;
 
 sleep 50;
 

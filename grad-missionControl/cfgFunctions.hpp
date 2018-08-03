@@ -17,6 +17,7 @@ class grad_missionControl {
 		  file = grad-missionControl\functions\server;
 
       class alignUnitsInLine;
+      class attachSmoke;
       class endMission;
       class handleDamage;
       

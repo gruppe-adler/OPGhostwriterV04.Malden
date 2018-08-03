@@ -4,12 +4,13 @@ params ["_unit"];
 _unit addEventHandler ["HandleDamage", {
 	params ["_unit", "_selection", "_damage", "_source", "_projectile", "_hitIndex", "_instigator", "_hitPoint"];
 
-	private _overalldamage = (damage _veh) + _damage;
+	private _overalldamage = (damage _unit) + _damage;
 	if (_overalldamage > 0.95) then
 		{ 
-		_veh setDamage 0.9;
+		_unit setDamage 0.9;
+		diag_log format ["prevented blowup on %1", _unit];
 		} else
 		{
-		_veh setDamage _overalldamage;
+		_unit setDamage _overalldamage;
 		};
 }];
