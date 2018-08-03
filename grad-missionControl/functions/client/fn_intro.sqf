@@ -50,6 +50,15 @@ endFogBase=0;
 
 	sleep 30;
 
+	
+
+	cutText ["", "BLACK OUT", 1];
+	sleep 1;
+	_camera cameraEffect ["terminate","back"];
+	camDestroy _camera; 
+	sleep 1;
+	cutText ["", "BLACK IN", 1];
+
 	INTRO_CAM_ROTATION_2 = false;
 
 	/*
