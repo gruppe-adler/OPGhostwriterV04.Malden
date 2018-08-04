@@ -1,6 +1,6 @@
 ["Initialize"] call BIS_fnc_dynamicGroups;
 
-startFog=0.65;
+startFog=0.60;
 startFogDecay=0;
 startFogBase=2.6;
 

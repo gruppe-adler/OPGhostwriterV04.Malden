@@ -38,6 +38,13 @@ _time24 = format ["%1%2", _hour, _minute];
   if (vehicle _leader isKindOf "Man") then {
       _displayname = "Inf";
   };
+  if (vehicle _leader isKindOf "Car") then {
+      _displayname = "Motorized";
+  };
+  if (vehicle _leader isKindOf "Tank") then {
+      _displayname = "Armor";
+  };
+  
   _marker setMarkerTextLocal _time24 + " " + _displayname;
 } forEach _groups;
 

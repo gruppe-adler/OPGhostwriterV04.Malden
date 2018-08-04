@@ -4,6 +4,7 @@ class grad_missionControl {
 		  file = grad-missionControl\functions\client;
 
       class addModules;
+      class createFlash;
       class createLightPoint;
       class intro;
       class outro;
