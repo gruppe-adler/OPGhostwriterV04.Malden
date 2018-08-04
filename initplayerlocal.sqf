@@ -1,7 +1,7 @@
 if (didJIP) then {
     [player] remoteExec ["grad_common_fnc_addJipToZeus",2,false];
 } else {
-	[] spawn GRAD_missionControl_fnc_intro;
+	// [] spawn GRAD_missionControl_fnc_intro;
 };
 
 ["InitializePlayer", [player,true]] call BIS_fnc_dynamicGroups;
