@@ -30,7 +30,7 @@ endFogBase=0;
 	private _endPosition2 = getPos camera_end2;
 	_endPosition2 set [2, 1.4];
 	
-	_startPosition set [2, 0.8];
+	_startPosition set [2, 0.9];
 	_endPosition set [2, 1.3];
 	_camTarget = _endPosition;
 
@@ -102,6 +102,10 @@ endFogBase=0;
 	sleep 1;
 	_camera cameraEffect ["terminate","back"];
 	camDestroy _camera; 
+
+	_filmgrain ppEffectEnable false;   
+	ppEffectDestroy _filmgrain; 
+
 	sleep 1;
 	cutText ["", "BLACK IN", 1];
 
@@ -120,8 +124,7 @@ endFogBase=0;
 	sleep 4;
 	cutText ["", "BLACK OUT", 1];
 	sleep 1;
-	_filmgrain ppEffectEnable false;   
-	ppEffectDestroy _filmgrain; 
+	
 	_camera cameraEffect ["terminate","back"];
 	camDestroy _camera;
 	sleep 1;

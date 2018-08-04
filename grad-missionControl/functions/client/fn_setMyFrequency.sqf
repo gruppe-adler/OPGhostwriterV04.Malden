@@ -16,6 +16,11 @@
 	};
 
 	if  (!(count _lrRadio isEqualTo 0)) then {
+
+		if (player getVariable ["isPOW", false]) then {
+				_frequencyLR = "77";
+		};
+
 		[_lrRadio, _frequencyLR] call TFAR_fnc_setLrFrequency;
 	};
 	
