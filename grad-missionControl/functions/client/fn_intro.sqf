@@ -30,8 +30,8 @@ endFogBase=0;
 	private _endPosition2 = getPos camera_end2;
 	_endPosition2 set [2, 1.4];
 	
-	_startPosition set [2, 0.9];
-	_endPosition set [2, 1.3];
+	_startPosition set [2, 1.2];
+	_endPosition set [2, 1.4];
 	_camTarget = _endPosition;
 
 	private _camera = "camera" camCreate _startPosition;
@@ -132,7 +132,6 @@ endFogBase=0;
 	*/
 	STHud_UIMode = 1;
 };
-cutText ["","BLACK FADED",999];
 sleep 3;
 cutText ["", "BLACK IN", 10];
 

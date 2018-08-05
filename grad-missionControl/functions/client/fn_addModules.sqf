@@ -24,7 +24,7 @@ if (
     // Get all the passed parameters
     params [["_position", [0,0,0], [[]], 3], ["_objectUnderCursor", objNull, [objNull]]];
 
-    [_objectUnderCursor, ["Alarm_OPFOR",300]] remoteExec ["say3D",0,false];
+    [_objectUnderCursor, ["Alarm_OPFOR",1000]] remoteExec ["say3D",0,false];
 
   }] call Ares_fnc_RegisterCustomModule;
 

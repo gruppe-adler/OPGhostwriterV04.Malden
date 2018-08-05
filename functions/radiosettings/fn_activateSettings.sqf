@@ -6,7 +6,7 @@ if !(isClass (configFile >> "CfgPatches" >> "tfar_core")) exitWith {
 
 _loadoutWaitCondition = if (isClass (missionConfigFile >> "CfgFunctions" >> "GRAD_loadout")) then {{player getVariable ["GRAD_loadout_applicationCount", 0] > 0}} else {true};
 [_loadoutWaitCondition, {
-    if ((assignedItems player) select 3 == "") exitWith {systemChat "radiosettings: No radio in loadout."};
+    if ((assignedItems player) select 3 == "") exitWith {//systemChat "radiosettings: No radio in loadout."};
 
     [] call grad_missionSetup_fnc_waitForRadioInit;
     [{player getVariable ["grad_radiosReceived",false]}, {
@@ -33,7 +33,7 @@ _loadoutWaitCondition = if (isClass (missionConfigFile >> "CfgFunctions" >> "GRA
                 [call TFAR_fnc_activeSwRadio, _settings] call TFAR_fnc_setSwSettings;
             };
 
-            systemChat "radiosettings: activated";
+            //systemChat "radiosettings: activated";
             GRAD_radioSettingsActivated = true;
         }, [], 1] call CBA_fnc_waitAndExecute;
     }, []] call CBA_fnc_waitUntilAndExecute;
